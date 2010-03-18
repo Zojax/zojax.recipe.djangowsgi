@@ -1,5 +1,4 @@
 from autoslug.fields import AutoSlugField
-from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 import datetime
@@ -13,7 +12,7 @@ class ContentItemManager(models.Manager):
 
 class ContentItem(models.Model):
     
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=300)
     slug = AutoSlugField(populate_from='title', verbose_name=_(u"Slug"), always_update=True)
 
     published = models.BooleanField(default=False)
