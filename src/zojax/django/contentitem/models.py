@@ -22,7 +22,7 @@ class ContentItem(models.Model):
 
     objects = ContentItemManager()
 
-    def __unicode(self):
+    def __unicode__(self):
         return self.title
 
     def save(self, *args, **kwargs):
