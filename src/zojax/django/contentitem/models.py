@@ -26,12 +26,11 @@ class ContentItem(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        super(ContentItem, self).save(*args, **kwargs)
         if self.published and not self.published_on:
             self.published_on = datetime.datetime.now()
-            
         if not self.published:
             self.published_on = None
+        super(ContentItem, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
