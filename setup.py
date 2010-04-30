@@ -3,9 +3,9 @@ import os
 
 version = '0.1dev'
 
-setup(name='zojax.django.contentitem',
+setup(name='zojax.recipe.djangowsgi',
       version=version,
-      description="Basic content item for Django.",
+      description="WSGI recipe for Django.",
       long_description="",
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -13,13 +13,13 @@ setup(name='zojax.django.contentitem',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='Andrey Fedoseev',
-      author_email='andrey.fedoseev@zojax.com',
+      author='Anatoly Bubenkov',
+      author_email='bubenkoff@zojax.com',
       url='',
       license='GPL',
       packages=find_packages('src'),
       package_dir={'':'src'},
-      namespace_packages=['zojax', 'zojax.django'],
+      namespace_packages=['zojax', 'zojax.recipe'],
       include_package_data=True,
       zip_safe=False,
       extras_require = dict(
@@ -27,11 +27,12 @@ setup(name='zojax.django.contentitem',
         ),
       install_requires=[
           'setuptools',
-          'django-autoslug',
+          'zc.recipe.egg',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      [zc.buildout]
+      default = zojax.recipe.djangowsgi:Recipe
       """,
       dependency_links = [],
       )
